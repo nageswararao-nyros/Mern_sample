@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Regular Expressions</title>
+	<style type="text/css">
+		body{
+			padding: 0;
+			margin: 0;
+			/*width: auto;*/
+		}
+		.sub{
+			background-color: #e8ebef;
+
+			/*margin-left: 300px;
+			margin-right: 300px;*/
+			height: 630px;
+			padding: 10px;
+		}
+		input{
+			/*width: 400px;*/
+			height: 30px;
+			margin: 10px;
+			border-radius: 10px;
+			text-indent: 10px;
+			outline: none;
+			border: none;
+		}
+
+		input:focus{
+			border: 1px solid blue;
+		}
+		button{
+			background-color: #61dafb;
+			color: black;
+			height: 40px;
+			border-radius: 25px;
+			border:none;
+			outline: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="main">
+		<div class="sub" align="center">
+			<h1>Hello</h1>
+			<h3>Welcome to SubWay!</h3>
+			<marquee bgcolor = "#61dafb" style="color: white; padding: 5px;">We have a new offers and New dealings!</marquee>
+			<br> <br> 
+			<div>
+				<input type="text" id="name" placeholder="Name"><br>
+				<input type="Email" id="mail" placeholder="Email"><br>
+				<input type="text" id="number" placeholder="Phone Number" name="focus"><br>
+				<label id="errorMsg" style="color: red"></label><br>
+				<button type="submit" onclick="dataValid()">Submit</button>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		class valid{
+
+			constructor(name, email, number){
+				this.name = name;
+				this.email = email;
+				this.number = number;
+			}
+
+
+		}
+
+		
+
+		function dataValid(){
+			var names = document.getElementById('name').value;
+			var emails = document.getElementById('mail').value;
+			var numbers = document.getElementById('number').value;
+
+			var numValidate = /^ ?[91]{2}?[-]?([0-9]{3}) ?[-]?([0-9]{3})[-]?([0-9]{4})$/;
+			
+			var match_numbers = numValidate.test(numbers); 
+			
+			if(match_numbers == false){
+				document.getElementById('errorMsg').innerHTML = "Eg:91-884-234-2424";
+				alert("Enter only Numeric values or Check your number carefully");
+				return false;
+			}else{
+				
+
+				var validate = new valid(names, emails, numbers);
+				alert("success");
+				
+
+			}console.log(validate);
+			
+		}
+	</script>
+</body>
+</html>
